@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+.Content{
+   height: 224px;
+   overflow: auto;
+   font-size: 0.75em;
+   font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#myDiv {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+#myDiv1 {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+#myDiv2 {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+#myDiv3 {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 5px;
+  white-space: pre-wrap;
+}
+
+    /* EOS */
+  </style>
+	
+</head>	
+<body>
+    <h1> Jelly Fish OGC SensorThing API</h1>
+<h2> Observations</h2>
+<button id="btnRequest" value="https://dev.grlc.io/api-git/ILIAD-ocean-twin/JF-API/Observations?page=1" type="button">Request data</button>
+<button id="btnCancelRequest" type="button">Cancel request</button>
+<button id="btnClean" type="button">Clean</button>
+<div class="Content" id="myDiv" style="display: none;"></div>
+
+<h2> Datastreams</h2>
+<button id="btnRequest1" type="button">Request data</button>
+<button id="btnCancelRequest1" type="button">Cancel request</button>
+<button id="btnClean1" type="button">Clean</button>
+<div class="Content" id="myDiv1" style="display: none;"></div>
+
+<h2> Sensors</h2>
+<button id="btnRequest2" type="button">Request data</button>
+<button id="btnCancelRequest2" type="button">Cancel request</button>
+<button id="btnClean2" type="button">Clean</button>
+<div class="Content" id="myDiv2" style="display: none;"></div>
+
+    <script type="text/javascript">//<![CDATA[
+
+
+function urlify(text) {
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  return text.replace(urlRegex, function(url) {
+    return '<a href="' + url + '">' + url + '</a>';
+  })
+  // or alternatively
+  // return text.replace(urlRegex, '<a href="$1">$1</a>')
+}
+
+function hide (elements) {
+  elements = elements.length ? elements : [elements];
+  for (var index = 0; index < elements.length; index++) {
+    elements[index].style.display = 'none';
+  }
+}
+
+function show (elements, specifiedDisplay) {
+  elements = elements.length ? elements : [elements];
+  for (var index = 0; index < elements.length; index++) {
+    elements[index].style.display = specifiedDisplay || 'block';
+  }
+}
+
+hide(document.getElementById('myDiv')) ;
+hide(document.getElementById('myDiv1')) ;
+hide(document.getElementById('myDiv2')) ;
+
+(function() {
+  var newXHR = null;
+
+  function sendXHR(type, url, data, callback) {
+    newXHR = new XMLHttpRequest() || new window.ActiveXObject("Microsoft.XMLHTTP");
+    newXHR.open(type, url, true); // Use async = true to avoid bad user experience for waiting a Sychronous request that might block the UI.
+    newXHR.setRequestHeader("accept", "application/json");
+    newXHR.send(data);
+    newXHR.onreadystatechange = function() {
+      if (this.status === 200 && this.readyState === 4) {
+        callback(this.response); // Callback function to process the response.
+      }
+    };
+  }
+
+  // Example 1: Get data.
+  var btnRequest = document.getElementById("btnRequest");
+  btnRequest.onclick = function(value) {
+    //console.log(value.target.value)
+    sendXHR("GET", value.target.value, null, function(response) {
+      show(document.getElementById('myDiv')) ;
+      document.getElementById("myDiv").innerHTML = urlify(JSON.stringify(JSON.parse(response),null, 2)); // response contains the data from the server.
+    });
+  };
+  
+   // Example 2. Cancel a long request.
+  var btnCancelRequest = document.getElementById("btnCancelRequest");
+  btnCancelRequest.onclick = function() {
+    newXHR.abort(); // You can use the newXHR variable to abort a XMLHttpRequest that is taking long time to response, with the .abort() method.
+    hide(document.getElementById('myDiv')) ;
+  };
+  
+  // Example 3. Clean response.
+  var btnClean = document.getElementById("btnClean");
+  btnClean.onclick = function() {
+     document.getElementById("myDiv").innerHTML = ""
+     hide(document.getElementById('myDiv')) ;
+  };
+
+  // Example 1: Get data.
+  var btnRequest1 = document.getElementById("btnRequest1");
+  btnRequest1.onclick = function() {
+    sendXHR("GET", "https://dev.grlc.io/api-git/ILIAD-ocean-twin/JF-API/Datastreams?page=1", null, function(response) {
+      show(document.getElementById('myDiv1')) ;
+      document.getElementById("myDiv1").innerHTML = urlify(JSON.stringify(JSON.parse(response),undefined, 2)); // response contains the data from the server.
+    });
+  };
+
+  // Example 2. Cancel a long request.
+  var btnCancelRequest1 = document.getElementById("btnCancelRequest1");
+  btnCancelRequest1.onclick = function() {
+    newXHR.abort(); // You can use the newXHR variable to abort a XMLHttpRequest that is taking long time to response, with the .abort() method.
+    hide(document.getElementById('myDiv1')) ;
+  };
+  
+  // Example 3. Clean response.
+  var btnClean1 = document.getElementById("btnClean1");
+  btnClean1.onclick = function() {
+     document.getElementById("myDiv1").innerHTML = ""
+     hide(document.getElementById('myDiv1')) ;
+  };
+  
+  // Example 1: Get data.
+  var btnRequest2 = document.getElementById("btnRequest2");
+  btnRequest2.onclick = function() {
+    sendXHR("GET", "https://dev.grlc.io/api-git/ILIAD-ocean-twin/JF-API/Sensors?page=1", null, function(response) {
+      show(document.getElementById('myDiv2')) ;
+      document.getElementById("myDiv2").innerHTML = urlify(JSON.stringify(JSON.parse(response),undefined, 2)); // response contains the data from the server.
+    });
+  };
+  
+   // Example 2. Cancel a long request.
+  var btnCancelRequest2 = document.getElementById("btnCancelRequest2");
+  btnCancelRequest2.onclick = function() {
+    newXHR.abort(); // You can use the newXHR variable to abort a XMLHttpRequest that is taking long time to response, with the .abort() method.
+    hide(document.getElementById('myDiv2')) ;
+  };
+  
+  // Example 3. Clean response.
+  var btnClean2 = document.getElementById("btnClean2");
+  btnClean2.onclick = function() {
+     document.getElementById("myDiv2").innerHTML = ""
+     hide(document.getElementById('myDiv2')) ;
+  };
+
+
+})();
+
+
+  //]]></script>
+
+
+</body>
+</html>
