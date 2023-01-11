@@ -1,0 +1,1180 @@
+openapi: 3.0.3
+info:
+  title: ILIAD OGC SensorThings API 1.0.0
+  description: >-
+    OGC SensorThings API for ILIAD ocean twin project. Source data is modelled
+    according to the Ocean Information Model (OIM). Data is retrieved from a
+    semantic store (Virtuoso triplestore).
+  contact:
+    email: bjaniak@man.ponzna.pl
+  version: 1.0.0
+servers:
+  - url: https://w3id.org/iliad/api/v1.0
+tags:
+  - name: Observations
+    description: ILIAD JellyFish Observations
+  - name: Datastreams
+    description: ILIAD JellyFish Datastreams
+  - name: Features Of Interest
+    description: ILIAD JellyFish Features of Interest
+  - name: Observed Properties
+    description: ILIAD JellyFish Observed Properties
+  - name: Sensors
+    description: ILIAD JellyFish Sensors
+  - name: Things
+    description: ILIAD JellyFish Things
+  - name: Locations
+    description: ILIAD JellyFish Locations
+  - name: HistoricalLocations
+    description: ILIAD JellyFish HistoricalLocations
+paths:
+  /Observations:
+    get:
+      tags:
+        - Observations
+      summary: Retrieve all Observations
+      description: Retrieve all Observations
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Observations({id}):
+    get:
+      tags:
+        - Observations
+      summary: Retrieve a specific Observation
+      description: >-
+        Retrieve a specific Observation using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Observation id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Observations({id})/Datastream:
+    get:
+      tags:
+        - Observations
+      summary: Retrieve Datastream for a sepcific Observation
+      description: >-
+        Retrieve Datastream for a sepcific Observation
+      parameters:
+        - name: id
+          in: path
+          description: Observation id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Observations({id})/FeatureOfInterest:
+    get:
+      tags:
+        - Observations
+      summary: Retrieve FeatureOfInterest for a sepcific Observation
+      description: >-
+        Retrieve FeatureOfInterest for a sepcific Observation
+      parameters:
+        - name: id
+          in: path
+          description: Observation id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams:
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve all Datastreams
+      description: Retrieve all Datastreams
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams({id}):
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve a specific Datastream
+      description: >-
+        Retrieve a specific Datastream using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Datastream id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams({id})/Observations:
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve all Observations related to the Datastream
+      description: >-
+        Retrieve all Observations related to the Datastream
+      parameters:
+        - name: id
+          in: path
+          description: Datastream id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams({id})/ObservedProperty:
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve ObservedProperty related to the Datastream
+      description: >-
+        Retrieve ObservedProperty related to the Datastream
+      parameters:
+        - name: id
+          in: path
+          description: Datastream id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams({id})/Sensor:
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve Sensor related to the Datastream
+      description: >-
+        Retrieve Sensor related to the Datastream
+      parameters:
+        - name: id
+          in: path
+          description: Datastream id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Datastreams({id})/Thing:
+    get:
+      tags:
+        - Datastreams
+      summary: Retrieve Thing related to the Datastream
+      description: >-
+        Retrieve Thing related to the Datastream
+      parameters:
+        - name: id
+          in: path
+          description: Datastream id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  
+  /FeaturesOfInterest:
+    get:
+      tags:
+        - Features Of Interest
+      summary: Retrieve all FeaturesOfInterest
+      description: Retrieve all FeaturesOfInterest
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /FeaturesOfInterest({id}):
+    get:
+      tags:
+        - Features Of Interest
+      summary: Retrieve a specific FeatureOfInterest
+      description: >-
+        Retrieve a specific FeatureOfInterest using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: FeatureOfInterest id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /FeaturesOfInterest({id})/Observations:
+    get:
+      tags:
+        - Features Of Interest
+      summary: Retrieve all Observations related to a specific FeatureOfInterest
+      description: >-
+        Retrieve all Observations related to a specific FeatureOfInterest
+      parameters:
+        - name: id
+          in: path
+          description: FeatureOfInterest id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  
+  /ObservedProperties:
+    get:
+      tags:
+        - Observed Properties
+      summary: Retrieve all ObservedProperties
+      description: Retrieve all ObservedProperties
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /ObservedProperties({id}):
+    get:
+      tags:
+        - Observed Properties
+      summary: Retrieve a specific ObservedProperty
+      description: >-
+        Retrieve a specific ObservedProperty using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: ObservedProperty id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /ObservedProperties({id})/Datastreams:
+    get:
+      tags:
+        - Observed Properties
+      summary: Retrieve all Datastreams related to a specific ObservedProperty
+      description: >-
+        Retrieve all Datastreams related to a specific ObservedProperty
+      parameters:
+        - name: id
+          in: path
+          description: ObservedProperty id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  
+  /Sensors:
+    get:
+      tags:
+        - Sensors
+      summary: Retrieve all Sensors
+      description: Retrieve all Sensors
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Sensors({id}):
+    get:
+      tags:
+        - Sensors
+      summary: Retrieve a specific Sensor
+      description: >-
+        Retrieve a specific Sensor using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Sensor id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Sensors({id})/Datastreams:
+    get:
+      tags:
+        - Sensors
+      summary: Retrieve all Datastreams related to a specific Sensor
+      description: >-
+        Retrieve all Datastreams related to a specific Sensor
+      parameters:
+        - name: id
+          in: path
+          description: Sensor id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+ 
+  /Things:
+    get:
+      tags:
+        - Things
+      summary: Retrieve all Things
+      description: Retrieve all Things
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Things({id}):
+    get:
+      tags:
+        - Things
+      summary: Retrieve a specific Thing
+      description: >-
+        Retrieve a specific Thing using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Thing id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Things({id})/Datastreams:
+    get:
+      tags:
+        - Things
+      summary: Retrieve all Datastreams related to a specific Thing
+      description: >-
+        Retrieve all Datastreams related to a specific Thing
+      parameters:
+        - name: id
+          in: path
+          description: Thing id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Things({id})/HistoricalLocations:
+    get:
+      tags:
+        - Things
+      summary: Retrieve all HistoricalLocations related to a specific Thing
+      description: >-
+        Retrieve all HistoricalLocations related to a specific Thing
+      parameters:
+        - name: id
+          in: path
+          description: Thing id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Things({id})/Locations:
+    get:
+      tags:
+        - Things
+      summary: Retrieve a Location of a specific Thing
+      description: >-
+        Retrieve a Location of a specific Thing
+      parameters:
+        - name: id
+          in: path
+          description: Thing id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  
+  /Locations:
+    get:
+      tags:
+        - Locations
+      summary: Retrieve all Locations
+      description: Retrieve all Locations
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Locations({id}):
+    get:
+      tags:
+        - Locations
+      summary: Retrieve a specific Location
+      description: >-
+        Retrieve a specific Location using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Locations({id})/HistoricalLocations:
+    get:
+      tags:
+        - Locations
+      summary: Retrieve all HistoricalLocations related to a specific Location
+      description: >-
+        Retrieve all HistoricalLocations related to a specific Location
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /Locations({id})/Things:
+    get:
+      tags:
+        - Locations
+      summary: Retrieve a Thing related to a specific Location
+      description: >-
+        Retrieve a Thing related to a specific Location
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  
+  /HistoricalLocations:
+    get:
+      tags:
+        - HistoricalLocations
+      summary: Retrieve all HistoricalLocations
+      description: Retrieve all HistoricalLocations
+      parameters:
+        - name: top
+          in: query
+          description: the number of records that are displayed
+          required: true
+          schema:
+            type: integer
+            enum:
+              - 100
+        - name: skip
+          in: query
+          description: can be used as a page number followed by two zeros
+          required: true
+          schema:
+            type: integer
+            minimum: 100
+            default: 100
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /HistoricalLocations({id}):
+    get:
+      tags:
+        - HistoricalLocations
+      summary: Retrieve a specific HistoricalLocation
+      description: >-
+        Retrieve a specific HistoricalLocation using its identifier
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /HistoricalLocations({id})/Locations:
+    get:
+      tags:
+        - HistoricalLocations
+      summary: Retrieve a Location for a specific HistoricalLocation
+      description: >-
+        Retrieve a Location for a specific HistoricalLocation
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
+  /HistoricalLocations({id})/Things:
+    get:
+      tags:
+        - HistoricalLocations
+      summary: Retrieve a Thing related to a specific HistoricalLocation
+      description: >-
+        Retrieve a Thing related to a specific HistoricalLocation
+      parameters:
+        - name: id
+          in: path
+          description: Location id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
