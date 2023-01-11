@@ -68,3 +68,4 @@ WHERE {
     # BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations?$top=', ?_limit_integer, '&$skip=', ?skip)) AS ?next_link)
 }
 ORDER BY ?id
+LIMIT ?the_limit
