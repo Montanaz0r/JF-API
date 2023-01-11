@@ -36,7 +36,7 @@ PREFIX oim-jf:  <http://w3id.org/iliad/oim/jellyfish#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT DISTINCT ?info ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link ?total ?next_link
+SELECT DISTINCT ?info ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link ?total ?next_link ?the_limit
 WHERE {
     ?col a sosa:ObservationCollection ;
       sosa:resultTime ?resultTime ;
@@ -62,11 +62,9 @@ WHERE {
        SELECT (count(*) as ?total) WHERE { ?x a sosa:Observation }
 
     }
-    OPTIONAL { ?s ?p ?_limit_integer }
-    OPTIONAL { ?s ?p ?__offset_integer }
-    BIND (IF(?__offset_integer, ?__offset_integer, 0) AS ?skip)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations?$top=', ?_limit_integer, '&$skip=', ?skip)) AS ?next_link)
+    BIND (xsd:integer(?_limit_integer) AS ?the_limit)
+    # BIND (IF(?__offset_integer, ?__offset_integer, 0) AS ?skip)
+    # BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations?$top=', ?_limit_integer, '&$skip=', ?skip)) AS ?next_link)
 }
 ORDER BY ?id
-LIMIT ?_limit_integer
-OFFSET ?__offset_integer
+LIMIT ?the_limit
