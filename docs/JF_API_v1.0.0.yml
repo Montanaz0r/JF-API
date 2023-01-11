@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: ILIAD OGC SensorThings API 1.0.0
+  title: ILIAD Jelly Fish Pilot OGC SensorThings API 1.0.0
   description: >-
     OGC SensorThings API for ILIAD ocean twin project. Source data is modelled
     according to the Ocean Information Model (OIM). Data is retrieved from a
@@ -9,7 +9,7 @@ info:
     email: bjaniak@man.ponzna.pl
   version: 1.0.0
 servers:
-  - url: https://w3id.org/iliad/api/v1.0
+  - url: https://w3id.org/iliad/jf/api/v1.0
 tags:
   - name: Observations
     description: ILIAD JellyFish Observations
@@ -35,7 +35,7 @@ paths:
       summary: Retrieve all Observations
       description: Retrieve all Observations
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -43,7 +43,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -164,7 +164,7 @@ paths:
       summary: Retrieve all Datastreams
       description: Retrieve all Datastreams
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -172,7 +172,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -240,7 +240,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -248,7 +248,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -370,7 +370,7 @@ paths:
       summary: Retrieve all FeaturesOfInterest
       description: Retrieve all FeaturesOfInterest
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -378,7 +378,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -446,7 +446,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -454,7 +454,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -486,7 +486,7 @@ paths:
       summary: Retrieve all ObservedProperties
       description: Retrieve all ObservedProperties
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -494,7 +494,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -562,7 +562,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -570,7 +570,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -602,7 +602,7 @@ paths:
       summary: Retrieve all Sensors
       description: Retrieve all Sensors
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -610,7 +610,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -678,7 +678,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -686,7 +686,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -718,7 +718,7 @@ paths:
       summary: Retrieve all Things
       description: Retrieve all Things
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -726,7 +726,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -794,7 +794,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -802,7 +802,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -840,7 +840,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -848,7 +848,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -910,7 +910,7 @@ paths:
       summary: Retrieve all Locations
       description: Retrieve all Locations
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -918,7 +918,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -986,7 +986,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -994,7 +994,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
@@ -1056,7 +1056,7 @@ paths:
       summary: Retrieve all HistoricalLocations
       description: Retrieve all HistoricalLocations
       parameters:
-        - name: top
+        - name: $top
           in: query
           description: the number of records that are displayed
           required: true
@@ -1064,7 +1064,7 @@ paths:
             type: integer
             enum:
               - 100
-        - name: skip
+        - name: $skip
           in: query
           description: can be used as a page number followed by two zeros
           required: true
