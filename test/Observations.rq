@@ -35,7 +35,7 @@ PREFIX oim-jf:  <http://w3id.org/iliad/oim/jellyfish#>
 PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-SELECT DISTINCT ?info ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link ?total ?the_limit ?_limit_integer
+SELECT DISTINCT ?info ?id ?id_link ?resultTime ?phenomenonTime ?densityOfJF ?quantityOfJF ?sampleSizeValue ?scientificName ?wormsConcept ?stingByJF ?beachedJF ?datastream_link ?feature_link ?total ?the_limit ?_limit
 WHERE {
     ?col a sosa:ObservationCollection ;
       sosa:resultTime ?resultTime ;
