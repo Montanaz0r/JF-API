@@ -11,6 +11,8 @@ info:
 servers:
   - url: https://w3id.org/iliad/jf/api/v1.0
 tags:
+  - name: Base
+    description: ILIAD JellyFish Entry Endpoint
   - name: Observations
     description: ILIAD JellyFish Observations
   - name: Datastreams
@@ -28,6 +30,33 @@ tags:
   - name: HistoricalLocations
     description: ILIAD JellyFish HistoricalLocations
 paths:
+  /:
+    get:
+      tags:
+        - Base
+      summary: Entry Endpoint
+      description: Entry Endpoint
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            application/sparql-results+xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
+                items:
+                  $ref: '#'
+        '400':
+          description: Bad Request
   /Observations:
     get:
       tags:
@@ -60,9 +89,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -81,6 +115,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 4540-15-2078-Rhizostoma%20pulmo
       responses:
         '200':
           description: successful operation
@@ -90,9 +125,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -111,6 +151,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 4540-15-2078-Rhizostoma%20pulmo
       responses:
         '200':
           description: successful operation
@@ -120,9 +161,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -141,6 +187,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 4540-15-2078-Rhizostoma%20pulmo
       responses:
         '200':
           description: successful operation
@@ -150,9 +197,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -189,9 +241,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -210,6 +267,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 3-jellyFishAbundanceProperty
       responses:
         '200':
           description: successful operation
@@ -219,9 +277,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -240,6 +303,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 3-jellyFishAbundanceProperty
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -265,9 +329,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -286,6 +355,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 3-jellyFishAbundanceProperty
       responses:
         '200':
           description: successful operation
@@ -295,9 +365,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -316,6 +391,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 3-jellyFishAbundanceProperty
       responses:
         '200':
           description: successful operation
@@ -325,9 +401,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -346,6 +427,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 3-jellyFishAbundanceProperty
       responses:
         '200':
           description: successful operation
@@ -355,9 +437,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -395,9 +482,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -416,6 +508,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1-18
       responses:
         '200':
           description: successful operation
@@ -425,9 +518,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -446,6 +544,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1-18
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -471,9 +570,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -511,9 +615,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -532,6 +641,7 @@ paths:
           required: true
           schema:
             type: string
+            default: jellyFishAbundanceProperty
       responses:
         '200':
           description: successful operation
@@ -541,9 +651,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -562,6 +677,7 @@ paths:
           required: true
           schema:
             type: string
+            default: jellyFishAbundanceProperty
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -587,9 +703,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -627,9 +748,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -648,6 +774,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
       responses:
         '200':
           description: successful operation
@@ -657,9 +784,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -678,6 +810,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -703,9 +836,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -743,9 +881,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -764,6 +907,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
       responses:
         '200':
           description: successful operation
@@ -773,9 +917,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -794,6 +943,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -819,9 +969,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -840,6 +995,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -865,9 +1021,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -886,6 +1047,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 1
       responses:
         '200':
           description: successful operation
@@ -895,9 +1057,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -935,9 +1102,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -956,6 +1128,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 2943
       responses:
         '200':
           description: successful operation
@@ -965,9 +1138,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -986,6 +1164,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 2943
         - name: $top
           in: query
           description: the number of records that are displayed
@@ -1011,9 +1190,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -1032,6 +1216,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 2943
       responses:
         '200':
           description: successful operation
@@ -1041,9 +1226,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -1081,9 +1271,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -1102,6 +1297,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 10089-3239
       responses:
         '200':
           description: successful operation
@@ -1111,9 +1307,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -1132,6 +1333,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 10089-3239
       responses:
         '200':
           description: successful operation
@@ -1141,9 +1343,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
@@ -1162,6 +1369,7 @@ paths:
           required: true
           schema:
             type: string
+            default: 10089-3239
       responses:
         '200':
           description: successful operation
@@ -1171,9 +1379,14 @@ paths:
                 type: array
                 items:
                   $ref: '#'
-            application/xml:
+            application/sparql-results+xml:
               schema:
                 type: array
+                items:
+                  $ref: '#'
+            text/csv:
+              schema:
+                type: string
                 items:
                   $ref: '#'
         '400':
