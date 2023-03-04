@@ -30,7 +30,7 @@
 #+   }
 #+ }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX oim-jf:  <http://w3id.org/iliad/oim/jellyfish#> 
@@ -63,9 +63,9 @@ WHERE {
     OPTIONAL { ?s ?p ?_sensor }
     OPTIONAL { ?s ?p ?_property }
     FILTER (?sensor= ?_sensor && ?property=?_property)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/FeautureOfInterest')) AS ?feature_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')/FeautureOfInterest')) AS ?feature_link)
     {
        SELECT (count(*) as ?total) 
        WHERE { 
@@ -83,5 +83,5 @@ WHERE {
       }
     }
     OPTIONAL { ?s ?p ?_page } 
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(',?sensor,'-',?property,')/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(',?sensor,'-',?property,')/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
 }

@@ -23,7 +23,7 @@
 #+   "Thing@iot.navigationLink": "?thing_link",
 #+   }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -47,9 +47,9 @@ WHERE {
     BIND (URI("http://qudt.org/2.1/vocab/unit") AS ?unit_definition)
     BIND (URI("U") AS ?unit_symbol)
     BIND (URI("Unitless") AS ?unit_name)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Observations')) AS ?obs_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/ObservedProperty')) AS ?op_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Sensor')) AS ?sensor_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Datastreams(', ?_id,')/Thing')) AS ?thing_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(', ?_id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(', ?_id,')/Observations')) AS ?obs_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(', ?_id,')/ObservedProperty')) AS ?op_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(', ?_id,')/Sensor')) AS ?sensor_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Datastreams(', ?_id,')/Thing')) AS ?thing_link)
 }

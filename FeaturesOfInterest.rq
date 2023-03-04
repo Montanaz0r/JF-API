@@ -26,7 +26,7 @@
 #+     },
 #+   }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -52,13 +52,13 @@ WHERE {
     BIND (STR('application/vnd.geo+json') AS ?enc_type)
     BIND (CONCAT(?lat, ', ', ?long) AS ?cords)
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(', ?id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(', ?id,')/Observations')) AS ?obs_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(', ?id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(', ?id,')/Observations')) AS ?obs_link)
         {
        SELECT (count(*) as ?total) WHERE { ?x a sosa:FeatureOfInterest }
 
     }
     OPTIONAL { ?s ?p ?_page_integer } 
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest?$top=100&$skip=', (?_page_integer+1)*100)) AS ?next_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest?$top=100&$skip=', (?_page_integer+1)*100)) AS ?next_link)
 }
 ORDER BY ?id

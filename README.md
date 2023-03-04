@@ -54,247 +54,247 @@ Data is retrieved from a semantic store (Virtuoso triplestore).
 
 ## Base Resource Path
 ```
-https://w3id.org/iliad/api/v1.0
+https://w3id.org/iliad/jf/api/v1.0
 ```
 ## Observations
 ### Retrieve all Observations
 ```
-https://w3id.org/iliad/api/v1.0/Observations
+https://w3id.org/iliad/jf/api/v1.0/Observations
 ```
 ### Retrieve a specific Observation
 ```
-https://w3id.org/iliad/api/v1.0/Observations(id)
+https://w3id.org/iliad/jf/api/v1.0/Observations(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)
+https://w3id.org/iliad/jf/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)
 ```
 ### Retrieve Datastream for a sepcific Observation
 ```
-https://w3id.org/iliad/api/v1.0/Observations(id)/Datastream
+https://w3id.org/iliad/jf/api/v1.0/Observations(id)/Datastream
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)/Datastream
+https://w3id.org/iliad/jf/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)/Datastream
 ```
 ### Retrieve FeatureOfInterest for a sepcific Observation
 ```
-https://w3id.org/iliad/api/v1.0/Observations(id)/FeatureOfInterest
+https://w3id.org/iliad/jf/api/v1.0/Observations(id)/FeatureOfInterest
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)/FeatureOfInterest
+https://w3id.org/iliad/jf/api/v1.0/Observations(4540-15-2078-Rhizostoma%20pulmo)/FeatureOfInterest
 ```
 
 ## Datastreams
 ### Retrieve all the Datastreams
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/Datastreams
 ```
 ### Retrieve a specific Datastream.
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(id)
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)
 ```
 ### Retrieve all Observations related to the Datastream
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(id)/Observations
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(id)/Observations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Observations
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Observations
 ```
 ### Retrieve ObservedProperty related to the Datastream
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(id)/ObservedProperty
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(id)/ObservedProperty
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/ObservedProperty
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/ObservedProperty
 ```
 ### Retrieve Sensor related to the Datastream
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(id)/Sensor
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(id)/Sensor
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Sensor
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Sensor
 ```
 ### Retrieve Thing related to the Datastream
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(id)/Thing
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(id)/Thing
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Thing
+https://w3id.org/iliad/jf/api/v1.0/Datastreams(3-jellyFishAbundanceProperty)/Thing
 ```
 
 
 ## Features of Interest
 ### Retrieve all FeaturesOfInterest
 ```
-https://w3id.org/iliad/api/v1.0/FeaturesOfInterest
+https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest
 ```
 ### Retrieve a specific FeatureOfInterest
 ```
-https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(id)
+https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(1-18)
+https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(1-18)
 ```
 ### Retrieve all Observations related to a specific FeatureOfInterest
 ```
-https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(id)/Observations
+https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(id)/Observations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(1-18)/Observations
+https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(1-18)/Observations
 ```
 
 ## Observed properties
 ### Retrieve all the Observed properties
 ```
-https://w3id.org/iliad/api/v1.0/ObservedProperties
+https://w3id.org/iliad/jf/api/v1.0/ObservedProperties
 ```
 ### Retrieve a specific ObservedProperty
 ```
-https://w3id.org/iliad/api/v1.0/ObservedProperties(id)
+https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/ObservedProperties(jellyFishAbundanceProperty)
+https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(jellyFishAbundanceProperty)
 ```
 ### Retrieve all Datastreams related to a specific ObservedProperty
 ```
-https://w3id.org/iliad/api/v1.0/ObservedProperties(id)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(id)/Datastreams
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/ObservedProperties(jellyFishAbundanceProperty)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(jellyFishAbundanceProperty)/Datastreams
 ```
 
 ## Sensors
 ### Retrieve all Sensors
 ```
-https://w3id.org/iliad/api/v1.0/Sensors
+https://w3id.org/iliad/jf/api/v1.0/Sensors
 ```
 ### Retrieve a specific Sensor
 ```
-https://w3id.org/iliad/api/v1.0/Sensors(id)
+https://w3id.org/iliad/jf/api/v1.0/Sensors(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Sensors(1)
+https://w3id.org/iliad/jf/api/v1.0/Sensors(1)
 ```
 ### Retrieve all Datastreams related to a specific Sensor
 ```
-https://w3id.org/iliad/api/v1.0/Sensors(id)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/Sensors(id)/Datastreams
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Sensors(1)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/Sensors(1)/Datastreams
 ```
 
 ## Things
 ### Retrieve all Things
 ```
-https://w3id.org/iliad/api/v1.0/Things
+https://w3id.org/iliad/jf/api/v1.0/Things
 ```
 ### Retrieve a specific Thing
 ```
-https://w3id.org/iliad/api/v1.0/Things(id)
+https://w3id.org/iliad/jf/api/v1.0/Things(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Things(1)
+https://w3id.org/iliad/jf/api/v1.0/Things(1)
 ```
 ### Retrieve all Datastreams related to a specific Thing
 ```
-https://w3id.org/iliad/api/v1.0/Things(id)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/Things(id)/Datastreams
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Things(2943)/Datastreams
+https://w3id.org/iliad/jf/api/v1.0/Things(2943)/Datastreams
 ```
 ### Retrieve all HistoricalLocations related to a specific Thing
 ```
-https://w3id.org/iliad/api/v1.0/Things(id)/HistoricalLocations
+https://w3id.org/iliad/jf/api/v1.0/Things(id)/HistoricalLocations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Things(2943)/HistoricalLocations
+https://w3id.org/iliad/jf/api/v1.0/Things(2943)/HistoricalLocations
 ```
 ### Retrieve a Location of a specific Thing
 ```
-https://w3id.org/iliad/api/v1.0/Things(id)/Locations
+https://w3id.org/iliad/jf/api/v1.0/Things(id)/Locations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Things(2943)/Locations
+https://w3id.org/iliad/jf/api/v1.0/Things(2943)/Locations
 ```
 
 ## Locations
 ### Retrieve all Locations
 ```
-https://w3id.org/iliad/api/v1.0/Locations
+https://w3id.org/iliad/jf/api/v1.0/Locations
 ```
 ### Retrieve a specific Location
 ```
-https://w3id.org/iliad/api/v1.0/Locations(id)
+https://w3id.org/iliad/jf/api/v1.0/Locations(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Locations(2943)
+https://w3id.org/iliad/jf/api/v1.0/Locations(2943)
 ```
 ### Retrieve all HistoricalLocations related to a specific Location
 ```
-https://w3id.org/iliad/api/v1.0/Locations(id)/HistoricalLocations
+https://w3id.org/iliad/jf/api/v1.0/Locations(id)/HistoricalLocations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Locations(2943)/HistoricalLocations
+https://w3id.org/iliad/jf/api/v1.0/Locations(2943)/HistoricalLocations
 ```
 ### Retrieve a Thing related to a specific Location
 ```
-https://w3id.org/iliad/api/v1.0/Locations(id)/Things
+https://w3id.org/iliad/jf/api/v1.0/Locations(id)/Things
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/Locations(1)/Things
+https://w3id.org/iliad/jf/api/v1.0/Locations(1)/Things
 ```
 
 ## HistoricalLocations
 ### Retrieve all HistoricalLocations
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations
 ```
 ### Retrieve a specific HistoricalLocation
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(id)
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(id)
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(10089-3239)
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(10089-3239)
 ```
 ### Retrieve a Location for a specific HistoricalLocation
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(id)/Locations
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(id)/Locations
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(10089-3239)/Locations
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(10089-3239)/Locations
 ```
 ### Retrieve a Thing for a specific HistoricalLocation
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(id)/Things
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(id)/Things
 ```
 For example:
 ```
-https://w3id.org/iliad/api/v1.0/HistoricalLocations(10089-3239)/Things
+https://w3id.org/iliad/jf/api/v1.0/HistoricalLocations(10089-3239)/Things
 ```
 
 For more information about OGC API please refer to:

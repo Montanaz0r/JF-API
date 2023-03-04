@@ -19,7 +19,7 @@
 #+   "Observations@iot.navigationLink": "?obs_link",
 #+   }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -46,6 +46,6 @@ WHERE {
     BIND (CONCAT('Location #', ?location) AS ?name)
     BIND (STR('application/vnd.geo+json') AS ?enc_type)
     BIND (CONCAT(?lat, ', ', ?long) AS ?cords)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(', ?_id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest(', ?_id,')/Observations')) AS ?obs_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(', ?_id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest(', ?_id,')/Observations')) AS ?obs_link)
 }

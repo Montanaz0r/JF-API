@@ -26,7 +26,7 @@
 #+     },
 #+   }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -62,14 +62,14 @@ WHERE {
     BIND (STRAFTER(STR(?sensor), '/sensor/') AS ?location)
     BIND (CONCAT('Location #', ?location) AS ?name)
     BIND (STR('application/vnd.geo+json') AS ?enc_type)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Locations(', ?location,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Locations(', ?location,')/Things')) AS ?things_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Locations(', ?location,')/HistoricalLocations')) AS ?hlocs_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Locations(', ?location,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Locations(', ?location,')/Things')) AS ?things_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Locations(', ?location,')/HistoricalLocations')) AS ?hlocs_link)
             {
         SELECT (count(*) as ?total) WHERE { ?x a sosa:Sensor }
 
     }
     OPTIONAL { ?s ?p ?_page_integer } 
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/FeaturesOfInterest?$top=100&$skip=', (?_page_integer+1)*100)) AS ?next_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/FeaturesOfInterest?$top=100&$skip=', (?_page_integer+1)*100)) AS ?next_link)
 }
 ORDER BY ?location

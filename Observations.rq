@@ -30,7 +30,7 @@
 #+   }
 #+ }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX oim-jf:  <http://w3id.org/iliad/oim/jellyfish#> 
@@ -56,14 +56,14 @@ WHERE {
     }
 		BIND ("OGC SensorThings API - Observations" as ?info)	  
     BIND (REPLACE(STR(?s), "^.*/([^/]*)$", "$1") as ?id)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations(', ?id,')/FeatureOfInterest')) AS ?feature_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')/Datastream')) AS ?datastream_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations(', ?id,')/FeatureOfInterest')) AS ?feature_link)
     {
        SELECT (count(*) as ?total) WHERE { ?x a sosa:Observation }
 
     }
     OPTIONAL { ?s ?p ?_page } 
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/Observations?$top=100&$skip=', (xsd:integer(?_page)+1)*100)) AS ?next_link)
 }
 ORDER BY ?id

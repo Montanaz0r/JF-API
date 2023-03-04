@@ -14,7 +14,7 @@
 #+   "Datastreams@iot.navigationLink": "?ds_link",
 #+   }
 
-PREFIX iliad-api: <https://w3id.org/iliad/api>
+PREFIX iliad-api: <https://w3id.org/iliad/jf/api/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX sosa:  <http://www.w3.org/ns/sosa/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -34,6 +34,6 @@ WHERE {
     BIND (STR(CONCAT("The total count for ", ?prop_name)) AS ?desc_info)
     BIND (REPLACE(STR(?obs_property), "^.*/([^/]*)$", "$1") as ?id)
     BIND (STR(CONCAT("ObservedProperty - ", ?id)) AS ?name)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/ObservedProperties(', ?id,')')) AS ?id_link)
-    BIND (URI(CONCAT('https://w3id.org/iliad/api/v1.0/ObservedProperties(', ?id,')/Datastreams')) AS ?ds_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(', ?id,')')) AS ?id_link)
+    BIND (URI(CONCAT('https://w3id.org/iliad/jf/api/v1.0/ObservedProperties(', ?id,')/Datastreams')) AS ?ds_link)
 }
